@@ -1,8 +1,5 @@
 #!/bin/bash
-c_files=$(ls *.c)
-for file in $c_files; do
-	    gcc -c $file
-    done
-ar rcs liball.a *.o
-rm *.o
+gcc -Wall -pedantic -Werror -Wextra -c *.c
+ar -rc liball.a *.o
+ranlib liball.a
 
