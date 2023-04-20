@@ -26,15 +26,15 @@ void print_name_uppercase(char *name)
     i = 0;
     while (name[i])
     {
-	    if (name[i] >= 'a' && name[i] <= 'z')
-	    {
+		if (name[i] >= 'a' && name[i] <= 'z')
+		{
 			putchar(name[i] + 'A' - 'a');
-	    }
-	    else
-	    {
+		}
+		else
+		{
 			putchar(name[i]);
-	    }
-	    i++;
+		}
+		i++;
     }
 }
 
