@@ -27,11 +27,11 @@ void close_elf(int elf);
  */
 void check_elf(unsigned char *e_ident)
 {
-	if (strncmp((char *)e_ident, ELFMAG, SELFMAG) != 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
-		exit(98);
-	}
+	// if (strncmp((char *)e_ident, ELFMAG, SELFMAG) != 0)
+	// {
+	// 	dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
+	// 	exit(98);
+	// }
 }
 
 /**
