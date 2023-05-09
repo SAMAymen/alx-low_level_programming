@@ -50,7 +50,7 @@ int main(int argc, char **argv)
 }
 
 /**
- * open_file - Opens a file.
+ * open_file - just Opens a file.
  * @path: The path to the file.
  * @flags: The flags to use when opening the file.
  * @mode: The mode to use when creating a new file.
