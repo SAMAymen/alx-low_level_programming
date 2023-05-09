@@ -68,7 +68,7 @@ int open_file(const char *path, int flags, int mode)
 
 /**
  * copy_file - Copies the contents of one file to another.
- * @from: The file descriptor of the source file.
+ * @from:  The file descriptor of the source file.
  * @to: The file descriptor of the destination file.
  *
  * Return: 0 on success, or -1 on failure.
