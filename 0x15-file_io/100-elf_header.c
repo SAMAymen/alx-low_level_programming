@@ -45,7 +45,7 @@ void print_magic(unsigned char *e_ident)
 {
 	int i;
 
-	printf("Magic:			");
+	printf("  Magic:   ");
 	for (i = 0; i < EI_NIDENT; i++)
 		printf("%02x%s", e_ident[i], i == EI_NIDENT - 1 ? "\n" : " ");
 }
@@ -67,7 +67,7 @@ void print_class(unsigned char *e_ident)
 		class_str = "ELF32";
 	else if (e_ident[EI_CLASS] == ELFCLASS64)
 		class_str = "ELF64";
-	printf("Class:			%s\n", class_str);
+	printf("  Class:                             %s\n", class_str);
 }
 
 /**
@@ -87,7 +87,7 @@ void print_data(unsigned char *e_ident)
 		data_str = "2's complement, little endian";
 	else if (e_ident[EI_DATA] == ELFDATA2MSB)
 		data_str = "2's complement, big endian";
-	printf("Data:			%s\n", data_str);
+	printf("  Data:                              %s\n", data_str);
 }
 
 /**
@@ -97,7 +97,7 @@ void print_data(unsigned char *e_ident)
  */
 void print_version(unsigned char *e_ident)
 {
-	printf("Version:			%d", e_ident[EI_VERSION]);
+	printf("  Version:                           %d", e_ident[EI_VERSION]);
 	switch (e_ident[EI_VERSION])
 	{
 		case EV_CURRENT:
@@ -153,7 +153,7 @@ void print_osabi(unsigned char *e_ident)
 			osabi_str = "<unknown>";
 			break;
 	}
-	printf("OS/ABI:			%s\n", osabi_str);
+	printf("  OS/ABI:                            %s\n", osabi_str);
 }
 
 /**
@@ -162,7 +162,7 @@ void print_osabi(unsigned char *e_ident)
  */
 void print_abi(unsigned char *e_ident)
 {
-	printf("ABI Version:			%d\n", e_ident[EI_ABIVERSION]);
+	printf("  ABI Version:                       %d\n", e_ident[EI_ABIVERSION]);
 }
 
 /**
@@ -175,7 +175,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
 
-	printf("Type:			");
+	printf("  Type:                              ");
 
 	switch (e_type)
 	{
