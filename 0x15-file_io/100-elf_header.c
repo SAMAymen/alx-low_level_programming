@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void check_elf(unsigned char *e_ident);
 void print_data(unsigned char *e_ident);
@@ -26,18 +27,10 @@ void close_elf(int elf);
  */
 void check_elf(unsigned char *e_ident)
 {
-	int index;
-
-		for (index = 0; index < 4; index++)
+	if (strncmp((char *)e_ident, ELFMAG, SELFMAG) != 0)
 	{
-		if (e_ident[index] != 127 &&
-		    e_ident[index] != 'E' &&
-		    e_ident[index] != 'L' &&
-		    e_ident[index] != 'F')
-		{
-			dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
-			exit(98);
-		}
+		dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
+		exit(98);
 	}
 }
 
@@ -102,7 +95,6 @@ void print_data(unsigned char *e_ident)
  * @e_ident: A pointer to an array containing the ELF version.
  * Description: Prints the ELF version number.
  */
-
 void print_version(unsigned char *e_ident)
 {
 	printf("Version:			%d", e_ident[EI_VERSION]);
