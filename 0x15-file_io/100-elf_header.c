@@ -79,15 +79,15 @@ void print_class(unsigned char *e_ident)
  */
 void print_data(unsigned char *e_ident)
 {
-	// const char *data_str = "<unknown>";
+	const char *data_str = "<unknown>";
 
-	// if (e_ident[EI_DATA] == ELFDATANONE)
-	// 	data_str = "none";
-	// else if (e_ident[EI_DATA] == ELFDATA2LSB)
-	// 	data_str = "2's complement, little endian";
-	// else if (e_ident[EI_DATA] == ELFDATA2MSB)
-	// 	data_str = "2's complement, big endian";
-	// printf("Data:			%s\n", data_str);
+	if (e_ident[EI_DATA] == ELFDATANONE)
+		data_str = "none";
+	else if (e_ident[EI_DATA] == ELFDATA2LSB)
+		data_str = "2's complement, little endian";
+	else if (e_ident[EI_DATA] == ELFDATA2MSB)
+		data_str = "2's complement, big endian";
+	printf("Data:			%s\n", data_str);
 }
 
 /**
