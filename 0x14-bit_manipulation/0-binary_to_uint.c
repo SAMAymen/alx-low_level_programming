@@ -12,9 +12,7 @@ unsigned int binary_to_uint(const char *b)
 
 	if (b == NULL)
 	{
-
 		return (0);
-
 	}
 
 	while (*b != '\0')
@@ -22,12 +20,10 @@ unsigned int binary_to_uint(const char *b)
 
 		if (*b != '0' && *b != '1')
 		{
-
-			return(0);
-
+			return (0);
 		}
 
-		converted_number = (converted_number * 2) + *b;
+		converted_number = (converted_number * 2) + (*b);
 
 		b++;
 	}
