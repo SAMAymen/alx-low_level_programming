@@ -23,7 +23,7 @@ unsigned int binary_to_uint(const char *b)
 			return (0);
 		}
 
-		converted_number = (converted_number * 2) + (*b);
+		converted_number = (converted_number << 1) + (*b - '0');
 
 		b++;
 	}
