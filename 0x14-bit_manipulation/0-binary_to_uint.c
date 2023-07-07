@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
@@ -9,14 +8,14 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
+	unsigned int converted_number = 0;
+
 	if (b == NULL)
 	{
 
 		return (0);
 
 	}
-
-	unsigned int converted_number = 0;
 
 	while (*b != '\0')
 	{
@@ -34,3 +33,4 @@ unsigned int binary_to_uint(const char *b)
 	}
 	return (converted_number);
 }
+
