@@ -1,44 +1,39 @@
 #include "search_algos.h"
+
 /**
- * binary_search -Search for a value in a sorted array using binary search
- * @array: Pointer to the first element of the array
- * @size: Number of elements in the array
- * @value: Value to search for in the array
- *
- * This function performs a binary search on a sorted integer array to find the
- * index of the specified value. If the value is found, the index is returned;
- * otherwise, -1 is returned.
- *
- * Return: If the value is found, the index of the value; otherwise, -1.
- */
+  * binary_search - Searches for a value in a sorted array
+  *                 of integers using binary search.
+  * @array: A pointer to the first element of the array to search.
+  * @size: The number of elements in the array.
+  * @value: The value to search for.
+  *
+  * Return: If the value is not present or the array is NULL, -1.
+  *         Otherwise, the index where the value is located.
+  *
+  * Description: Prints the [sub]array being searched after each change.
+  */
 int binary_search(int *array, size_t size, int value)
 {
-	size_t left = 0;
-	size_t right = size - 1;
-	int mid = 0;
-	size_t i;
+	size_t i, left, right;
 
-	while (left <= right)
+	if (array == NULL)
+		return (-1);
+
+	for (left = 0, right = size - 1; right >= left;)
 	{
 		printf("Searching in array: ");
 		for (i = left; i < right; i++)
 			printf("%d, ", array[i]);
 		printf("%d\n", array[i]);
 
-		mid = (left + right) / 2;
-		if (array[mid] < value)
-		{
-			left = mid + 1;
-		}
-		else if (array[mid] > value)
-		{
-			right = mid - 1;
-		}
-		else if (mid == value)
-		{
-			return (mid);
-		}
+		i = left + (right - left) / 2;
+		if (array[i] == value)
+			return (i);
+		if (array[i] > value)
+			right = i - 1;
+		else
+			left = i + 1;
 	}
+
 	return (-1);
 }
-
